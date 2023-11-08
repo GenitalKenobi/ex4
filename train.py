@@ -14,8 +14,7 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy before permutation: {accuracy * 100:.2f}%")
-perm_importance = permutation_importance(model, X_test, y_test, n_repeats=30,
-random_state=42)
+perm_importance = permutation_importance(model, X_test, y_test, n_repeats=30, random_state=42)
 feature_importances = perm_importance.importances_mean
 feature_names = X.columns
 for feature_name, importance in zip(feature_names, feature_importances):
